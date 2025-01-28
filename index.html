@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Simple Assessment</title>
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  /* Align numbers in the Value column to the right */
+  td:nth-child(2) {
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <h1>Table Output and Processing</h1>
+  
+  <p>Table 1</p>
+  <table id="table1">
+    <tr>
+      <th>Index #</th>
+      <th>Value</th>
+    </tr>
+<tr><td>A1</td><td id="val_A1" value="41">41</td></tr>
+<tr><td>A2</td><td id="val_A2" value="18">18</td></tr>
+<tr><td>A3</td><td id="val_A3" value="21">21</td></tr>
+<tr><td>A4</td><td id="val_A4" value="63">63</td></tr>
+<tr><td>A5</td><td id="val_A5" value="2">2</td></tr>
+<tr><td>A6</td><td id="val_A6" value="53">53</td></tr>
+<tr><td>A7</td><td id="val_A7" value="5">5</td></tr>
+<tr><td>A8</td><td id="val_A8" value="57">57</td></tr>
+<tr><td>A9</td><td id="val_A9" value="60">60</td></tr>
+<tr><td>A10</td><td id="val_A10" value="93">93</td></tr>
+<tr><td>A11</td><td id="val_A11" value="28">28</td></tr>
+<tr><td>A12</td><td id="val_A12" value="3">3</td></tr>
+<tr><td>A13</td><td id="val_A13" value="90">90</td></tr>
+<tr><td>A14</td><td id="val_A14" value="39">39</td></tr>
+<tr><td>A15</td><td id="val_A15" value="80">80</td></tr>
+<tr><td>A16</td><td id="val_A16" value="88">88</td></tr>
+<tr><td>A17</td><td id="val_A17" value="49">49</td></tr>
+<tr><td>A18</td><td id="val_A18" value="60">60</td></tr>
+<tr><td>A19</td><td id="val_A19" value="26">26</td></tr>
+<tr><td>A20</td><td id="val_A20" value="28">28</td></tr>
+  </table>
+  <br>
+  <p>Table 2</p>
+  <table id="table2">
+    <tr>
+      <th>Category</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Alpha</td>
+      <td><output type="text" id ="alpha"></output></td>
+    </tr>
+    <tr>
+      <td>Beta</td>
+      <td><output type="text" id ="beta"></output></td>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td><output type="text" id ="charlie"></output></td>
+    </tr>
+  </table>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+    
+    // Get values by IDs and convert their content to integers
+    let A5 = parseInt(document.getElementById("val_A5").textContent);
+    let A7 = parseInt(document.getElementById("val_A7").textContent);
+    let A12 = parseInt(document.getElementById("val_A12").textContent);
+    let A13 = parseInt(document.getElementById("val_A13").textContent);
+    let A15 = parseInt(document.getElementById("val_A15").textContent);
+    let A20 = parseInt(document.getElementById("val_A20").textContent);
+
+    // Check for any NaN values
+    if (isNaN(A5) || isNaN(A7) || isNaN(A12) || isNaN(A13) || isNaN(A15) || isNaN(A20)) {
+        console.error("One or more values are not valid numbers.");
+        return;
+    }
+
+    // Perform calculations
+    let alpha = A5 + A20;       // 2 + 28 = 30
+    let beta = (A15 / A7);  // 80 / 5 = 16.00
+    let charlie = A13 * A12;    // 90 * 3 = 270
+
+    // Display calculated values in Table 2
+    document.getElementById("alpha").textContent = alpha;
+    document.getElementById("beta").textContent = beta;
+    document.getElementById("charlie").textContent = charlie;
+});
+
+      </script>
+</body>
+</html>
